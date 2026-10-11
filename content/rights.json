@@ -1,0 +1,35 @@
+[
+  {
+    "rightsId": "rights-lesson-01",
+    "title": "Introduction to Solar System Astronomy",
+    "sourceUrl": "content/lessons/lesson-01",
+    "owner": "WatchMate AI Educational Curriculum",
+    "license": "CC-BY-4.0",
+    "permissionEvidence": "Original educational script authored for WatchMate AI learning companion demo with public domain astronomical factual baseline (NASA planetary fact sheet).",
+    "attribution": "WatchMate AI Educational Project; Planetary Data: NASA/JPL Public Domain baseline",
+    "redistributionTerms": "Permitted for redistribution and demonstration within the Amazon Developer Hackathon 2026. Note: Video media asset is pending owner selection.",
+    "status": "pending_media"
+  },
+  {
+    "rightsId": "rights-lesson-02",
+    "title": "Earth's Atmosphere and Weather Systems",
+    "sourceUrl": "content/lessons/lesson-02",
+    "owner": "WatchMate AI Educational Curriculum",
+    "license": "CC-BY-4.0",
+    "permissionEvidence": "Original educational curriculum script authored for WatchMate AI learning companion demo with NOAA meteorological baseline.",
+    "attribution": "WatchMate AI Educational Project; Atmospheric Data: NOAA Earth System Research Laboratory baseline",
+    "redistributionTerms": "Permitted for redistribution and demonstration within the Amazon Developer Hackathon 2026. Note: Video media asset is pending owner selection.",
+    "status": "pending_media"
+  },
+  {
+    "rightsId": "rights-lesson-03",
+    "title": "The Water Cycle and Hydrosphere",
+    "sourceUrl": "content/lessons/lesson-03",
+    "owner": "WatchMate AI Educational Curriculum",
+    "license": "CC-BY-4.0",
+    "permissionEvidence": "Original educational curriculum script authored for WatchMate AI learning companion demo with USGS hydrological water science baseline.",
+    "attribution": "WatchMate AI Educational Project; Hydrology Data: USGS Water Science School baseline",
+    "redistributionTerms": "Permitted for redistribution and demonstration within the Amazon Developer Hackathon 2026. Note: Video media asset is pending owner selection.",
+    "status": "pending_media"
+  }
+]

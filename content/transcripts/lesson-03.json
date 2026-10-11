@@ -1,0 +1,97 @@
+{
+  "videoId": "lesson-03",
+  "transcriptVersion": "v1",
+  "durationMs": 180000,
+  "segments": [
+    {
+      "id": "seg-001",
+      "startMs": 0,
+      "endMs": 10000,
+      "text": "Welcome to The Water Cycle and Hydrosphere. Water is the defining compound that sustains life across our living world."
+    },
+    {
+      "id": "seg-002",
+      "startMs": 10500,
+      "endMs": 22000,
+      "text": "Over seventy percent of Earth's surface is blanketed by water, with oceans accounting for ninety-seven percent of all global moisture."
+    },
+    {
+      "id": "seg-003",
+      "startMs": 22500,
+      "endMs": 35000,
+      "text": "Freshwater accounts for only three percent of the total, with two-thirds locked in glaciers and polar ice sheets."
+    },
+    {
+      "id": "seg-004",
+      "startMs": 35500,
+      "endMs": 48000,
+      "text": "The hydrologic cycle is powered by solar energy, initiating evaporation from oceans, lakes, and rivers into the air."
+    },
+    {
+      "id": "seg-005",
+      "startMs": 48500,
+      "endMs": 60000,
+      "text": "Plants contribute significantly through transpiration, releasing water vapor directly from microscopic pores in their leaves."
+    },
+    {
+      "id": "seg-006",
+      "startMs": 60500,
+      "endMs": 72000,
+      "text": "As warm moist air ascends, it expands and cools, leading to condensation where vapor forms microscopic cloud droplets."
+    },
+    {
+      "id": "seg-007",
+      "startMs": 72500,
+      "endMs": 85000,
+      "text": "When droplets coalesce and become too dense for updrafts to support, precipitation falls as rain, snow, sleet, or hail."
+    },
+    {
+      "id": "seg-008",
+      "startMs": 85500,
+      "endMs": 98000,
+      "text": "Precipitation that reaches land can soak into porous soils through infiltration, recharging subterranean groundwater aquifers."
+    },
+    {
+      "id": "seg-009",
+      "startMs": 98500,
+      "endMs": 110000,
+      "text": "Excess water moves over the ground as surface runoff, carving streams, feeding rivers, and eventually returning to the sea."
+    },
+    {
+      "id": "seg-010",
+      "startMs": 110500,
+      "endMs": 122000,
+      "text": "Oceans act as immense thermal reservoirs, absorbing solar heat and moderating global climates through deep marine currents."
+    },
+    {
+      "id": "seg-011",
+      "startMs": 122500,
+      "endMs": 136000,
+      "text": "The thermohaline circulation distributes heat worldwide, driven by differences in water temperature and salinity."
+    },
+    {
+      "id": "seg-012",
+      "startMs": 136500,
+      "endMs": 149000,
+      "text": "Human activities like dam construction and irrigation alter local hydrological balances and watershed ecosystems."
+    },
+    {
+      "id": "seg-013",
+      "startMs": 149500,
+      "endMs": 162000,
+      "text": "Protecting freshwater resources and wetlands is vital for biodiversity, agriculture, and global environmental resilience."
+    },
+    {
+      "id": "seg-014",
+      "startMs": 162500,
+      "endMs": 173000,
+      "text": "The continuous movement of water demonstrates how interconnected atmosphere, lithosphere, and biosphere remain."
+    },
+    {
+      "id": "seg-015",
+      "startMs": 173500,
+      "endMs": 180000,
+      "text": "This concludes our review of the hydrosphere. Continue exploring anytime with WatchMate AI."
+    }
+  ]
+}

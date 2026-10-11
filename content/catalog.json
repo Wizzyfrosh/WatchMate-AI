@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lesson-01",
+    "title": "Introduction to Solar System Astronomy",
+    "durationMs": 180000,
+    "description": "A foundational lesson exploring the sun, terrestrial planets, asteroid belt, and gas giants in our solar system.",
+    "mediaKey": "media/lesson-01.mp4",
+    "captionsKey": "captions/lesson-01.vtt",
+    "transcriptVersion": "v1",
+    "rightsId": "rights-lesson-01"
+  },
+  {
+    "id": "lesson-02",
+    "title": "Earth's Atmosphere and Weather Systems",
+    "durationMs": 180000,
+    "description": "An exploration of atmospheric layers, planetary wind cells, pressure systems, and jet stream dynamics.",
+    "mediaKey": "media/lesson-02.mp4",
+    "captionsKey": "captions/lesson-02.vtt",
+    "transcriptVersion": "v1",
+    "rightsId": "rights-lesson-02"
+  },
+  {
+    "id": "lesson-03",
+    "title": "The Water Cycle and Hydrosphere",
+    "durationMs": 180000,
+    "description": "A comprehensive study of evaporation, condensation, precipitation, groundwater aquifers, and thermohaline ocean circulation.",
+    "mediaKey": "media/lesson-03.mp4",
+    "captionsKey": "captions/lesson-03.vtt",
+    "transcriptVersion": "v1",
+    "rightsId": "rights-lesson-03"
+  }
+]

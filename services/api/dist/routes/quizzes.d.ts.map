@@ -1,0 +1,1 @@
+{"version":3,"file":"quizzes.d.ts","sourceRoot":"","sources":["../../src/routes/quizzes.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,SAAS,CAAC;AAClD,OAAO,KAAK,EAAE,aAAa,EAAE,MAAM,sBAAsB,CAAC;AAQ1D,OAAO,EACL,KAAK,UAAU,EAGhB,MAAM,eAAe,CAAC;AAEvB,eAAO,MAAM,UAAU,GACrB,SAAS,aAAa,EACtB,aAAY,UAA+B,KAC1C,kBA0HF,CAAC"}

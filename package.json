@@ -1,0 +1,13 @@
+{
+  "name": "watchmate-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "WatchMate AI — Active Fire TV Learning Companion",
+  "scripts": {
+    "dev": "npm --prefix services/api run dev",
+    "start": "npm --prefix services/api start",
+    "build": "npm --prefix packages/contracts run build && npm --prefix services/api run build",
+    "test": "node scripts/check-phase6.mjs",
+    "tv": "npm --prefix apps/tv start"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "videoId": "lesson-02",
+  "transcriptVersion": "v1",
+  "durationMs": 180000,
+  "segments": [
+    {
+      "id": "seg-001",
+      "startMs": 0,
+      "endMs": 10000,
+      "text": "Welcome to Earth's Atmosphere and Weather Systems. In this lesson, we examine the layers of gas protecting our planet."
+    },
+    {
+      "id": "seg-002",
+      "startMs": 10500,
+      "endMs": 22000,
+      "text": "The atmosphere consists primarily of seventy-eight percent nitrogen and twenty-one percent oxygen, with trace gases like argon and carbon dioxide."
+    },
+    {
+      "id": "seg-003",
+      "startMs": 22500,
+      "endMs": 35000,
+      "text": "The lowest layer is the troposphere, extending up to twelve kilometers, where nearly all terrestrial weather occurs."
+    },
+    {
+      "id": "seg-004",
+      "startMs": 35500,
+      "endMs": 48000,
+      "text": "Above the troposphere lies the stratosphere, home to the ozone layer which absorbs harmful solar ultraviolet radiation."
+    },
+    {
+      "id": "seg-005",
+      "startMs": 48500,
+      "endMs": 60000,
+      "text": "The mesosphere is the third layer, where incoming meteors burn up due to friction with atmospheric particles."
+    },
+    {
+      "id": "seg-006",
+      "startMs": 60500,
+      "endMs": 72000,
+      "text": "Higher still is the thermosphere, characterized by rapidly rising temperatures and the display of brilliant auroras."
+    },
+    {
+      "id": "seg-007",
+      "startMs": 72500,
+      "endMs": 85000,
+      "text": "Finally, the exosphere forms the outermost boundary, gradually merging into the vacuum of interplanetary space."
+    },
+    {
+      "id": "seg-008",
+      "startMs": 85500,
+      "endMs": 98000,
+      "text": "Solar energy warms the equatorial regions more intensely than polar regions, creating planetary temperature gradients."
+    },
+    {
+      "id": "seg-009",
+      "startMs": 98500,
+      "endMs": 110000,
+      "text": "These temperature differences drive atmospheric circulation cells, generating prevailing winds across the globe."
+    },
+    {
+      "id": "seg-010",
+      "startMs": 110500,
+      "endMs": 122000,
+      "text": "The Coriolis effect, caused by Earth's rotation, deflects moving air masses to the right in the northern hemisphere."
+    },
+    {
+      "id": "seg-011",
+      "startMs": 122500,
+      "endMs": 136000,
+      "text": "High pressure systems generally bring clear skies and cool air, while low pressure systems foster clouds and precipitation."
+    },
+    {
+      "id": "seg-012",
+      "startMs": 136500,
+      "endMs": 149000,
+      "text": "Jet streams are fast, narrow air currents flowing eastward near the tropopause that steer major storm tracks."
+    },
+    {
+      "id": "seg-013",
+      "startMs": 149500,
+      "endMs": 162000,
+      "text": "Humidity represents the amount of water vapor in the air, condensing into clouds when saturated air cools."
+    },
+    {
+      "id": "seg-014",
+      "startMs": 162500,
+      "endMs": 173000,
+      "text": "Understanding these dynamical systems enables meteorologists to forecast extreme weather and protect communities."
+    },
+    {
+      "id": "seg-015",
+      "startMs": 173500,
+      "endMs": 180000,
+      "text": "Thank you for completing this overview of atmospheric science with WatchMate AI."
+    }
+  ]
+}

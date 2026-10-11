@@ -1,0 +1,227 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  WatchMate AI — Serverless infrastructure for Fire TV learning companion.
+  Includes Fastify API Gateway HTTP API, Lambda function, DynamoDB session & quota store,
+  S3 media storage, and CloudFront CDN distribution with zero embedded secrets.
+
+Parameters:
+  Environment:
+    Type: String
+    Default: staging
+    AllowedValues:
+      - dev
+      - staging
+      - prod
+    Description: Deployment target environment.
+
+  BedrockModelId:
+    Type: String
+    Default: amazon.nova-lite-v1:0
+    Description: Approved Bedrock model ID for runtime Converse API.
+
+  AiKillSwitch:
+    Type: String
+    Default: 'false'
+    AllowedValues:
+      - 'true'
+      - 'false'
+    Description: Runtime kill switch to instantly disable AI generation while preserving video playback.
+
+  EvaluationAccessCodeHash:
+    Type: String
+    Default: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+    Description: SHA-256 hash of revocable judge evaluation access code.
+
+Globals:
+  Function:
+    Timeout: 18
+    MemorySize: 512
+    Runtime: nodejs20.x
+    Architectures:
+      - arm64
+    Environment:
+      Variables:
+        NODE_ENV: production
+        DEV_AUTH_BYPASS: 'false'
+        BEDROCK_MODEL_ID: !Ref BedrockModelId
+        AI_KILL_SWITCH: !Ref AiKillSwitch
+        DYNAMODB_SESSIONS_TABLE: !Ref SessionsTable
+        DYNAMODB_QUOTAS_TABLE: !Ref QuotasTable
+        EVAL_CODE_HASH: !Ref EvaluationAccessCodeHash
+
+Resources:
+  # HTTP API Gateway (PRD §10 - 16KB body limit, CORS enabled)
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowMethods:
+          - GET
+          - POST
+          - OPTIONS
+        AllowHeaders:
+          - Content-Type
+          - Authorization
+          - x-correlation-id
+        AllowOrigins:
+          - '*'
+
+  # Core API Lambda Function
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../services/api/
+      Handler: dist/lambda.handler
+      Description: WatchMate AI Fastify backend handler
+      Policies:
+        # Strictly scoped Bedrock invocation policy
+        - Statement:
+            - Effect: Allow
+              Action:
+                - bedrock:InvokeModel
+                - bedrock:Converse
+              Resource:
+                - !Sub 'arn:aws:bedrock:${AWS::Region}::foundation-model/${BedrockModelId}'
+        # Strictly scoped DynamoDB session & quota access
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SessionsTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref QuotasTable
+      Events:
+        ProxyApi:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /{proxy+}
+            Method: ANY
+        RootApi:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /
+            Method: ANY
+
+  # DynamoDB Table for Session Admission & Short-Lived Tokens (PRD §12)
+  SessionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub 'watchmate-sessions-${Environment}'
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: sessionId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: sessionId
+          KeyType: HASH
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+
+  # DynamoDB Table for Atomic Rate-Limits and Quotas (PRD §12 & §13)
+  QuotasTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub 'watchmate-quotas-${Environment}'
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: quotaKey
+          AttributeType: S
+      KeySchema:
+        - AttributeName: quotaKey
+          KeyType: HASH
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
+
+  # Private Media Bucket for Educational Video and WebVTT Assets
+  MediaBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'watchmate-media-${Environment}-${AWS::AccountId}'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+  # CloudFront Origin Access Control (OAC)
+  CloudFrontOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub 'watchmate-oac-${Environment}'
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  # S3 Bucket Policy allowing CloudFront OAC read only
+  MediaBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref MediaBucket
+      PolicyDocument:
+        Statement:
+          - Action: s3:GetObject
+            Effect: Allow
+            Resource: !Sub '${MediaBucket.Arn}/*'
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}'
+
+  # CloudFront Distribution for HTTPS Low-Latency Content Delivery
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub 'WatchMate AI CDN (${Environment})'
+        DefaultRootObject: index.html
+        Origins:
+          - Id: S3MediaOrigin
+            DomainName: !GetAtt MediaBucket.RegionalDomainName
+            OriginAccessControlId: !GetAtt CloudFrontOAC.Id
+            S3OriginConfig: {}
+        DefaultCacheBehavior:
+          TargetOriginId: S3MediaOrigin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+          CachedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+
+Outputs:
+  HttpApiUrl:
+    Description: HTTP API endpoint base URL
+    Value: !Sub 'https://${HttpApi}.execute-api.${AWS::Region}.amazonaws.com'
+    Export:
+      Name: !Sub 'WatchMate-ApiUrl-${Environment}'
+
+  CloudFrontDomain:
+    Description: CloudFront distribution domain for media assets
+    Value: !GetAtt CloudFrontDistribution.DomainName
+    Export:
+      Name: !Sub 'WatchMate-MediaCdn-${Environment}'
+
+  SessionsTableName:
+    Description: DynamoDB Sessions Table Name
+    Value: !Ref SessionsTable
+
+  QuotasTableName:
+    Description: DynamoDB Quotas Table Name
+    Value: !Ref QuotasTable

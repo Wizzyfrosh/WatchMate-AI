@@ -1,0 +1,97 @@
+{
+  "videoId": "lesson-01",
+  "transcriptVersion": "v1",
+  "durationMs": 180000,
+  "segments": [
+    {
+      "id": "seg-001",
+      "startMs": 0,
+      "endMs": 10000,
+      "text": "Welcome to Introduction to Solar System Astronomy. In this brief lesson, we will explore the major bodies orbiting our central star."
+    },
+    {
+      "id": "seg-002",
+      "startMs": 10500,
+      "endMs": 22000,
+      "text": "At the center of our system is the Sun, an ordinary G-type main-sequence star that contains more than ninety-nine percent of the total mass."
+    },
+    {
+      "id": "seg-003",
+      "startMs": 22500,
+      "endMs": 35000,
+      "text": "Closest to the Sun are the four terrestrial planets: Mercury, Venus, Earth, and Mars. They are composed primarily of rock and metal."
+    },
+    {
+      "id": "seg-004",
+      "startMs": 35500,
+      "endMs": 48000,
+      "text": "Mercury is heavily cratered with no substantial atmosphere, while Venus has a dense carbon dioxide atmosphere producing extreme surface heat."
+    },
+    {
+      "id": "seg-005",
+      "startMs": 48500,
+      "endMs": 60000,
+      "text": "Earth is the only known world with abundant liquid surface water and life, accompanied by its large natural satellite, the Moon."
+    },
+    {
+      "id": "seg-006",
+      "startMs": 60500,
+      "endMs": 72000,
+      "text": "Mars, the red planet, features ancient river valleys, polar ice caps, and the largest volcano in the solar system, Olympus Mons."
+    },
+    {
+      "id": "seg-007",
+      "startMs": 72500,
+      "endMs": 85000,
+      "text": "Separating the inner rocky planets from the outer system is the asteroid belt, populated by thousands of rocky remnants including the dwarf planet Ceres."
+    },
+    {
+      "id": "seg-008",
+      "startMs": 85500,
+      "endMs": 98000,
+      "text": "Beyond the asteroid belt lie the giant planets. Jupiter is the largest, possessing a turbulent atmosphere with the famous Great Red Spot."
+    },
+    {
+      "id": "seg-009",
+      "startMs": 98500,
+      "endMs": 110000,
+      "text": "Jupiter also hosts four large Galilean moons: Io, Europa, Ganymede, and Callisto, each displaying unique geology."
+    },
+    {
+      "id": "seg-010",
+      "startMs": 110500,
+      "endMs": 122000,
+      "text": "Saturn is famed for its extensive and bright ring system, made largely of ice particles, rocky debris, and dust."
+    },
+    {
+      "id": "seg-011",
+      "startMs": 122500,
+      "endMs": 136000,
+      "text": "Further out are the ice giants, Uranus and Neptune. Uranus is unique for its extreme axial tilt, rotating essentially on its side."
+    },
+    {
+      "id": "seg-012",
+      "startMs": 136500,
+      "endMs": 149000,
+      "text": "Neptune is known for its intense supersonic winds, vivid blue appearance from atmospheric methane, and its retrogradely orbiting moon, Triton."
+    },
+    {
+      "id": "seg-013",
+      "startMs": 149500,
+      "endMs": 162000,
+      "text": "Beyond Neptune's orbit lies the Kuiper belt, a realm of icy bodies and dwarf planets including Pluto, Haumea, and Makemake."
+    },
+    {
+      "id": "seg-014",
+      "startMs": 162500,
+      "endMs": 173000,
+      "text": "Together, these diverse worlds reveal the dynamic history of accretion, collision, and migration that shaped our cosmic neighborhood."
+    },
+    {
+      "id": "seg-015",
+      "startMs": 173500,
+      "endMs": 180000,
+      "text": "Thank you for watching this introduction. Continue watching or use WatchMate to pause and explore any concept in detail."
+    }
+  ]
+}

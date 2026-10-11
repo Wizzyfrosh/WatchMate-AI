@@ -1,0 +1,11 @@
+**/node_modules/
+**/.gradle/
+**/build/
+**/.bundle-check/
+**/local.properties
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+!apps/tv/android/app/debug.keystore
