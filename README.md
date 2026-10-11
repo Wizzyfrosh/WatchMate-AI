@@ -1,2 +1,2 @@
 # WatchMate-AI
-An AI-powered watch and monitoring application
+Turn educational videos into interactive learning on Fire TV.
